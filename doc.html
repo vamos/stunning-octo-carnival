@@ -77,16 +77,13 @@ Požadavky:
 
 Postup: 
 <ul>
-<li>Naklonujte projekt do cílového adresáře: git clone adresa</li>
-<li>Nainstalujte vše potřebné pro kompatibilní Homestead prostředíviz. požadavky výše</li>
+<li>Naklonujte projekt do cílového adresáře: git clone https://github.com/vamos/stunning-octo-carnival</li>
+<li>Nainstalujte vše potřebné pro kompatibilní Homestead prostředí viz. požadavky výše</li>
+<li>Přihlašte se do mysql: mysql -u root -p</li>
+<li>Vytvořte databázi: CREATE DATABASE IIS;</li>
+<li>Změňte heslo uživatele root na 'd6ed06', tak aby odpovídalo záznamu v souboru .env v adresáři Projekt. Nebo upravte položky .env : DB_DATABASE, DB_USERNAME a DB_PASSWORD podle vašeho mysql nastavení.</li>
 <li>V kořenovém adresáři projektu</li>
 <li>Nainstalujte composer: composer install</li>
-<li>DELETE Vygenerujte aplikační klíč: php artisan key:generate</li>
-<li>Přihlašte se do mysql: mysql -u root -p</li>
-<li>Vytvořte databázi: CREATE DATABASE test;</li>
-<li>Změňte případně heslo uživatele root, tak aby odpovídalo záznamu v souboru .env v kořenovém adresáři projektu</li>
-<li>DELETE Vytvořte soubor .env: cp .env.example .env</li>
-<li>DELETE Zeditujte položky souboru .env následovně: DB_DATABASE=test DB_USERNAME=root DB_PASSWORD=root</li>
 <li>Spusťte migraci databáze: php artisan migrate:fresh --seed</li>
 <li>Spusťte server: php artisan serve</li>
 <li>Otevřete uvítací stránku v proklížeči na adrese: http://localhost:8000</li>
