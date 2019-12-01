@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Jídelna: objednávka a rozvoz jídel</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+   <dd>Tomáš Kiss<!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkisst00@stud.fit.vutbr.cz">xkisst00@stud.fit.vutbr.cz</a> - 
+	   front-end, back-end, hosting
+	</dd>
+	<dd>Lukáš Erlich<!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xerlic00@stud.fit.vutbr.cz">xerlic00@stud.fit.vutbr.cz</a> - 
+	   front-end, back-end	
+	</dd>
+	<dd>Libor Dvořáček<!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xdvora2t01@stud.fit.vutbr.cz">xdvora2t@stud.fit.vutbr.cz</a> -
+	   front-end, data, dokumentace
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd>(načtení stránky může trvat déle, jelikož méně používané stránky hostingu přecházejí do tzv. úsporného režimu)</dd>
+	<dd><a href="https://mighty-brushlands-96446.herokuapp.com/">https://mighty-brushlands-96446.herokuapp.com/</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>iis@example.com</td><td>iisadmin</td><td>Administrátor</td></tr>
+<tr><td>jana@example.com</td><td>iisoperator</td><td>Operátor</td></tr>
+<tr><td>jan@example.com</td><td>iisvodic</td><td>Řidič</td></tr>
+<tr><td>anna@example.com</td><td>iisuzivatel</td><td>Strávník</td></tr>
+</table>
+
+
+<h3>Diagram případů užití </h3> 
+<img src="use-case.jpg" alt="UseCase" width="800" height="700"></img>
+
+<h2>Implementace</h2>
+<p>Jednotlivé komponenty návrhového vzoru ModelViewController jsou ve frameworku Laravel uloženy následovně:</p>
+<ul>
+        <li>Modely: app/</li>
+        <li>Views: resources/views/</li>
+        <li>Controllery: app/Http/Controllers/</li>
+</ul>
+<table>
+        <tr><th>Model</th><th>View</th><th>Controller</th><th>Use case</th></tr>
+        <tr><td>User.php</td><td>USER</td><td>UserController.php</td><td>spravovat uživatele, zobrazit uživatele, editovat profil, registrovat</td></tr>
+        <tr><td>Provozna.php</td><td>PROVOZNA</td><td>ProvoznaController.php</td><td>spravovat provozovnu, zobrazit provozovnu</td></tr>
+        <tr><td>Nabidka.php</td><td>NABIDKA</td><td>NabidkaController.php</td><td>spravovat nabídky, zobrazit nabídky, filtrovat nabídky</td></tr>
+        <tr><td>Objednavka.php</td><td>OBJEDNAVKA</td><td>ObjednavkaController.php</td><td>změnit stav objednávky, zobrazit objednavku, vložit objednávku, spravovat plán řidičů, vypsat plán řidičů</td></tr>
+</table>
+<h3>Databáze</h3>
+<img src="databaze.jpg" alt="DB" width="1000" height="600"></img>
+
+<h2>Instalace</h2>
+
+Požadavky:
+<ul>
+<li>Laravel Framework 6.4.1</li>
+<li>PHP 7.3.10 a MySQL server 8.0.18, nebo XAMPP 7.3.11</li>
+<li>Composer 1.9.0</li>
+</ul>
+
+Postup: 
+<ul>
+<li>Naklonujte projekt do cílového adresáře: git clone adresa</li>
+<li>Nainstalujte vše potřebné pro kompatibilní Homestead prostředíviz. požadavky výše</li>
+<li>V kořenovém adresáři projektu</li>
+<li>Nainstalujte composer: composer install</li>
+<li>DELETE Vygenerujte aplikační klíč: php artisan key:generate</li>
+<li>Přihlašte se do mysql: mysql -u root -p</li>
+<li>Vytvořte databázi: CREATE DATABASE test;</li>
+<li>Změňte případně heslo uživatele root, tak aby odpovídalo záznamu v souboru .env v kořenovém adresáři projektu</li>
+<li>DELETE Vytvořte soubor .env: cp .env.example .env</li>
+<li>DELETE Zeditujte položky souboru .env následovně: DB_DATABASE=test DB_USERNAME=root DB_PASSWORD=root</li>
+<li>Spusťte migraci databáze: php artisan migrate:fresh --seed</li>
+<li>Spusťte server: php artisan serve</li>
+<li>Otevřete uvítací stránku v proklížeči na adrese: http://localhost:8000</li>
+</ul>
+
+
+<h2>Známé problémy</h2>
+<li>Vše je implementováno přesně podle zadání.</li>
+
+</body>
+</html>
