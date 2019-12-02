@@ -83,7 +83,7 @@ function regi(n){
     }
 
 function enab(n){
-    alert('checkbox');
+    // alert('checkbox');
     console.log('dd');
     let checkbox = document.getElementById(n);
     if(checkbox.checked == true){

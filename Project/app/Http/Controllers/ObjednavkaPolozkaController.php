@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Objednavka_Polozka;
 use \App\Objednavka;
 use Illuminate\Http\Request;
@@ -49,6 +50,14 @@ class ObjednavkaPolozkaController extends Controller
         // else {
         //     return redirect('/');     
         // }
+
+        try {
+            request()->validate([
+                'polozka' => ['required','min:1']]);
+    
+        } catch (\Illuminate\Validation\ValidationException $e){
+            return redirect('/');
+        }
         $novo_zaregistrovany = null;    
         if($request->email){
             $request->validate([
@@ -68,7 +77,6 @@ class ObjednavkaPolozkaController extends Controller
                 'password' => bcrypt($request->password),
             ]);
         }    
-
         request()->validate([
             'polozka' => ['required','min:1'],
             'pocet' => ['required','min:1'],
@@ -77,20 +85,20 @@ class ObjednavkaPolozkaController extends Controller
             'tel2' => ['required','numeric','min:1'],
             'email2' => ['required', 'string', 'max:255'],
         ]);
-
+        
         
         if(auth()->check()){
             $objednavka = Objednavka::create(['provozna_id' => $request->provozna_id,'uzivatel_id' => auth()->user()->id
             ,'operator_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','operátor'] ])->value('id'),
             'vodic_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','vodič'] ])->value('id') 
             ]);
-    
+            
         } else {
             $objednavka = Objednavka::create(['provozna_id' => $request->provozna_id,'operator_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','operátor'] ])->value('id'),
             'vodic_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','vodič'] ])->value('id') ]);
         }
-
-
+        
+        
         $polozky = $request->input('polozka');
         $pocet = $request->input('pocet');
         foreach ($polozky as $index => $polozka) {
@@ -98,19 +106,21 @@ class ObjednavkaPolozkaController extends Controller
                 'objednavka_id' => $objednavka->id,
                 'polozka_id' => $polozka,
                 'pocet' => $pocet[$index]
-            ]);
+                ]);
+            }
+            
+            $tmp = Objednavka::find($objednavka->id)->update(['mesto' => $request->mesto,'ulica' => $request->ulica,'meno' => $request->meno,'tel' => $request->tel2, 'email' => $request->email2]);
+            
+            // dd(Objednavka::find($objednavka->id));    
+            if($novo_zaregistrovany){
+                Objednavka::findOrFail($objednavka->id)->update(['uzivatel_id' => $novo_zaregistrovany->id,
+                'operator_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','operátor'] ])->value('id'),
+                'vodic_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','vodič'] ])->value('id')
+                ]);
+                auth()->loginUsingId($novo_zaregistrovany->id);
+                
         }
-        // dd($request);    
-
-        $tmp = Objednavka::findOrFail($objednavka->id)->update(['mesto' => $request->mesto,'ulica' => $request->ulica,'meno' => $request->meno,'tel' => $request->tel2, 'email' => $request->email2]);
-     
-        if($novo_zaregistrovany){
-            Objednavka::findOrFail($request->objednavka_id)->update(['uzivatel_id' => $novo_zaregistrovany->id,
-            'operator_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','operátor'] ])->value('id'),
-            'vodic_id' => User::where([['pracoviste_id','=',$request->provozna_id], ['role','=','vodič'] ])->value('id')
-            ]);
-            Auth::login($novo_zaregistrovany);
-        }
+        // dd($tmp,$objednavka->id);    
      
         return redirect('/')->with('message', "Objednávka úspešne vytvorená! \n Číslo objednávky: $objednavka->id");
         // return redirect('/');     

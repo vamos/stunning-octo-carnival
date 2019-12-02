@@ -83,7 +83,7 @@
         let checkbox = document.getElementById('check'+number);
         let num =  document.getElementById('number'+number);
         if(checkbox.checked == false){
-             alert('check'+number);
+            //  alert('check'+number);
             num.name = "";
         }
     }

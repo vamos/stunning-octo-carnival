@@ -34,7 +34,7 @@
 
                 <div  class="form-group row">
                 <label for="tel" class="col-md-4 col-form-label text-md-right">Tel.číslo</label>
-                    <?php echo "<input id=\"tel\"class=\"col-md-6 form-control\" type=\"text\" name=\"tel2\" required " . "value= " .(auth()->user() ? ("'" . (auth()->user()->phone) ."'") : "").">";  ?>
+                    <?php echo "<input id=\"tel\"class=\"col-md-6 form-control\" pattern=\"([^\s][0-9]+)\"  type=\"text\" name=\"tel2\" required " . "value= " .(auth()->user() ? ("'" . (auth()->user()->phone) ."'") : "").">";  ?>
                 </div>
 
                 <div  class="form-group row">
@@ -69,7 +69,7 @@
                 <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Telefon') }}</label>
 
                 <div class="col-md-6">
-                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"  autofocus>
+                    <input id="phone" type="text"  class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"  autofocus>
 
                     @error('phone')
                         <span class="invalid-feedback" role="alert">
@@ -172,10 +172,10 @@
             <tr>
                 <div  class="form-group">
                     <label for="" class="checkbox"></label>
-                        <td><input  checked type="checkbox" id="{{ "check".Polozka::findOrFail($value)->id }}" name="polozka[]"
+                        <td><input checked type="checkbox" id="{{ "check".Polozka::findOrFail($value)->id }}" name="polozka[]"
                             value="{{ Polozka::findOrFail($value)->id }}" onClick="countIn({{ Polozka::findOrFail($value)->id }})"></td>
                             <td>{{ Polozka::findOrFail($value)->popis }}</td>
-                            <td><input  type="number" name="pocet[]" id="{{ "number".Polozka::findOrFail($value)->id }}" min="1" max="99" value="1"></td>
+                            <td><input  type="number" required name="pocet[]" id="{{ "number".Polozka::findOrFail($value)->id }}" min="1" max="99" value="1"></td>
 
                     </div>
                 </tr>
@@ -198,15 +198,15 @@
 
 
 <script type="text/javascript">
-function randomIntFromInterval(min, max) { // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// function randomIntFromInterval(min, max) { // min and max included
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
-function upozornenie(){
-    // if(){
-        alert("Objednávka úspešne vytvorená! \n Číslo objednávky: " + randomIntFromInterval(8880000, 8888888));
-    // }
-}
+// function upozornenie(){
+//     // if(){
+//         alert("Objednávka úspešne vytvorená! \n Číslo objednávky: " + randomIntFromInterval(8880000, 8888888));
+//     // }
+// }
 
 function regi(n){
         // alert('check');
@@ -261,7 +261,7 @@ function countIn(number){
     let checkbox = document.getElementById('check'+number);
     let num =  document.getElementById('number'+number);
     if(checkbox.checked == false){
-            alert('check'+number);
+            // alert('check'+number);
         num.name = "";
     } else {
         num.name = "pocet[]";

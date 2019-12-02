@@ -1,10 +1,8 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reminder Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -12,11 +10,10 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'password'  => 'Heslo musí obsahovat alespoň 8 znaků a musí se shodovat s ověřením.',
+    'reset'     => 'Heslo bylo obnoveno!',
+    'sent'      => 'E-mail s instrukcemi k obnovení hesla byl odeslán!',
     'throttled' => 'Please wait before retrying.',
-
+    'token'     => 'Klíč pro obnovu hesla je nesprávný.',
+    'user'      => 'Nepodařilo se najít uživatele s touto e-mailovou adresou.',
 ];

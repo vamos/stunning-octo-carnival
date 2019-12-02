@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -12,8 +10,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'failed'   => 'Tyto přihlašovací údaje neodpovídají žadnému záznamu.',
+    'throttle' => 'Příliš mnoho pokusů o přihlášení. Zkuste to prosím znovu za :seconds vteřin.',
 ];

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -9,114 +8,113 @@ return [
     |
     | The following language lines contain the default error messages used by
     | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | as the size rules. Feel free to tweak each of these messages.
     |
     */
 
-    'accepted' => 'The :attribute must be accepted.',
-    'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'The :attribute must be a date after :date.',
-    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
-    'alpha' => 'The :attribute may only contain letters.',
-    'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
-    'alpha_num' => 'The :attribute may only contain letters and numbers.',
-    'array' => 'The :attribute must be an array.',
-    'before' => 'The :attribute must be a date before :date.',
-    'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
-    'between' => [
-        'numeric' => 'The :attribute must be between :min and :max.',
-        'file' => 'The :attribute must be between :min and :max kilobytes.',
-        'string' => 'The :attribute must be between :min and :max characters.',
-        'array' => 'The :attribute must have between :min and :max items.',
+    'accepted'        => ':attribute musí být přijat.',
+    'active_url'      => ':attribute není platnou URL adresou.',
+    'after'           => ':attribute musí být datum po :date.',
+    'after_or_equal'  => ':attribute musí být datum :date nebo pozdější.',
+    'alpha'           => ':attribute může obsahovat pouze písmena.',
+    'alpha_dash'      => ':attribute může obsahovat pouze písmena, číslice, pomlčky a podtržítka. České znaky (á, é, í, ó, ú, ů, ž, š, č, ř, ď, ť, ň) nejsou podporovány.',
+    'alpha_num'       => ':attribute může obsahovat pouze písmena a číslice.',
+    'array'           => ':attribute musí být pole.',
+    'before'          => ':attribute musí být datum před :date.',
+    'before_or_equal' => 'Datum :attribute musí být před nebo rovno :date.',
+    'between'         => [
+        'numeric' => ':attribute musí být hodnota mezi :min a :max.',
+        'file'    => ':attribute musí být větší než :min a menší než :max Kilobytů.',
+        'string'  => ':attribute musí být delší než :min a kratší než :max znaků.',
+        'array'   => ':attribute musí obsahovat nejméně :min a nesmí obsahovat více než :max prvků.',
     ],
-    'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute confirmation does not match.',
-    'date' => 'The :attribute is not a valid date.',
-    'date_equals' => 'The :attribute must be a date equal to :date.',
-    'date_format' => 'The :attribute does not match the format :format.',
-    'different' => 'The :attribute and :other must be different.',
-    'digits' => 'The :attribute must be :digits digits.',
-    'digits_between' => 'The :attribute must be between :min and :max digits.',
-    'dimensions' => 'The :attribute has invalid image dimensions.',
-    'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
-    'ends_with' => 'The :attribute must end with one of the following: :values',
-    'exists' => 'The selected :attribute is invalid.',
-    'file' => 'The :attribute must be a file.',
-    'filled' => 'The :attribute field must have a value.',
-    'gt' => [
-        'numeric' => 'The :attribute must be greater than :value.',
-        'file' => 'The :attribute must be greater than :value kilobytes.',
-        'string' => 'The :attribute must be greater than :value characters.',
-        'array' => 'The :attribute must have more than :value items.',
+    'boolean'        => ':attribute musí být true nebo false',
+    'confirmed'      => ':attribute nesouhlasí.',
+    'date'           => ':attribute musí být platné datum.',
+    'date_equals'    => ':attribute musí být datum shodné s :date.',
+    'date_format'    => ':attribute není platný formát data podle :format.',
+    'different'      => ':attribute a :other se musí lišit.',
+    'digits'         => ':attribute musí být :digits pozic dlouhé.',
+    'digits_between' => ':attribute musí být dlouhé nejméně :min a nejvíce :max pozic.',
+    'dimensions'     => ':attribute má neplatné rozměry.',
+    'distinct'       => ':attribute má duplicitní hodnotu.',
+    'email'          => ':attribute není platný formát.',
+    'ends_with'      => ':attribute musí končit jednou z následujících hodnot: :values',
+    'exists'         => 'Zvolená hodnota pro :attribute není platná.',
+    'file'           => ':attribute musí být soubor.',
+    'filled'         => ':attribute musí být vyplněno.',
+    'gt'             => [
+        'numeric' => ':attribute musí být větší než :value.',
+        'file'    => 'Velikost souboru :attribute musí být větší než :value kB.',
+        'string'  => 'Počet znaků :attribute musí být větší :value.',
+        'array'   => 'Pole :attribute musí mít více prvků než :value.',
     ],
     'gte' => [
-        'numeric' => 'The :attribute must be greater than or equal :value.',
-        'file' => 'The :attribute must be greater than or equal :value kilobytes.',
-        'string' => 'The :attribute must be greater than or equal :value characters.',
-        'array' => 'The :attribute must have :value items or more.',
+        'numeric' => ':attribute musí být větší nebo rovno :value.',
+        'file'    => 'Velikost souboru :attribute musí být větší nebo rovno :value kB.',
+        'string'  => 'Počet znaků :attribute musí být větší nebo rovno :value.',
+        'array'   => 'Pole :attribute musí mít :value prvků nebo více.',
     ],
-    'image' => 'The :attribute must be an image.',
-    'in' => 'The selected :attribute is invalid.',
-    'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
-    'ip' => 'The :attribute must be a valid IP address.',
-    'ipv4' => 'The :attribute must be a valid IPv4 address.',
-    'ipv6' => 'The :attribute must be a valid IPv6 address.',
-    'json' => 'The :attribute must be a valid JSON string.',
-    'lt' => [
-        'numeric' => 'The :attribute must be less than :value.',
-        'file' => 'The :attribute must be less than :value kilobytes.',
-        'string' => 'The :attribute must be less than :value characters.',
-        'array' => 'The :attribute must have less than :value items.',
+    'image'    => ':attribute musí být obrázek.',
+    'in'       => 'Zvolená hodnota pro :attribute je neplatná.',
+    'in_array' => ':attribute není obsažen v :other.',
+    'integer'  => ':attribute musí být celé číslo.',
+    'ip'       => ':attribute musí být platnou IP adresou.',
+    'ipv4'     => ':attribute musí být platná IPv4 adresa.',
+    'ipv6'     => ':attribute musí být platná IPv6 adresa.',
+    'json'     => ':attribute musí být platný JSON řetězec.',
+    'lt'       => [
+        'numeric' => ':attribute musí být menší než :value.',
+        'file'    => 'Velikost souboru :attribute musí být menší než :value kB.',
+        'string'  => ':attribute musí obsahovat méně než :value znaků.',
+        'array'   => ':attribute by měl obsahovat méně než :value položek.',
     ],
     'lte' => [
-        'numeric' => 'The :attribute must be less than or equal :value.',
-        'file' => 'The :attribute must be less than or equal :value kilobytes.',
-        'string' => 'The :attribute must be less than or equal :value characters.',
-        'array' => 'The :attribute must not have more than :value items.',
+        'numeric' => ':attribute musí být menší nebo rovno než :value.',
+        'file'    => 'Velikost souboru :attribute musí být menší než :value kB.',
+        'string'  => ':attribute nesmí být delší než :value znaků.',
+        'array'   => ':attribute by měl obsahovat maximálně :value položek.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
-        'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
-        'array' => 'The :attribute may not have more than :max items.',
+        'numeric' => ':attribute nemůže být větší než :max.',
+        'file'    => 'Velikost souboru :attribute musí být menší než :value kB.',
+        'string'  => ':attribute nemůže být delší než :max znaků.',
+        'array'   => ':attribute nemůže obsahovat více než :max prvků.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
-    'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
-        'array' => 'The :attribute must have at least :min items.',
+    'mimes'     => ':attribute musí být jeden z následujících datových typů :values.',
+    'mimetypes' => ':attribute musí být jeden z následujících datových typů :values.',
+    'min'       => [
+        'numeric' => ':attribute musí být větší než :min.',
+        'file'    => ':attribute musí být větší než :min kB.',
+        'string'  => ':attribute musí být delší než :min znaků.',
+        'array'   => ':attribute musí obsahovat více než :min prvků.',
     ],
-    'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
-    'present' => 'The :attribute field must be present.',
-    'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
-    'required_if' => 'The :attribute field is required when :other is :value.',
-    'required_unless' => 'The :attribute field is required unless :other is in :values.',
-    'required_with' => 'The :attribute field is required when :values is present.',
-    'required_with_all' => 'The :attribute field is required when :values are present.',
-    'required_without' => 'The :attribute field is required when :values is not present.',
-    'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => 'The :attribute and :other must match.',
-    'size' => [
-        'numeric' => 'The :attribute must be :size.',
-        'file' => 'The :attribute must be :size kilobytes.',
-        'string' => 'The :attribute must be :size characters.',
-        'array' => 'The :attribute must contain :size items.',
+    'not_in'               => 'Zvolená hodnota pro :attribute je neplatná.',
+    'not_regex'            => ':attribute musí být regulární výraz.',
+    'numeric'              => ':attribute musí být číslo.',
+    'present'              => ':attribute musí být vyplněno.',
+    'regex'                => ':attribute nemá správný formát.',
+    'required'             => ':attribute musí být vyplněno.',
+    'required_if'          => ':attribute musí být vyplněno pokud :other je :value.',
+    'required_unless'      => ':attribute musí být vyplněno dokud :other je v :values.',
+    'required_with'        => ':attribute musí být vyplněno pokud :values je vyplněno.',
+    'required_with_all'    => ':attribute musí být vyplněno pokud :values je zvoleno.',
+    'required_without'     => ':attribute musí být vyplněno pokud :values není vyplněno.',
+    'required_without_all' => ':attribute musí být vyplněno pokud není žádné z :values zvoleno.',
+    'same'                 => ':attribute a :other se musí shodovat.',
+    'size'                 => [
+        'numeric' => ':attribute musí být přesně :size.',
+        'file'    => ':attribute musí mít přesně :size Kilobytů.',
+        'string'  => ':attribute musí být přesně :size znaků dlouhý.',
+        'array'   => ':attribute musí obsahovat právě :size prvků.',
     ],
-    'starts_with' => 'The :attribute must start with one of the following: :values',
-    'string' => 'The :attribute must be a string.',
-    'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
-    'uploaded' => 'The :attribute failed to upload.',
-    'url' => 'The :attribute format is invalid.',
-    'uuid' => 'The :attribute must be a valid UUID.',
+    'starts_with' => ':attribute musí začínat jednou z následujících hodnot: :values',
+    'string'      => ':attribute musí být řetězec znaků.',
+    'timezone'    => ':attribute musí být platná časová zóna.',
+    'unique'      => ':attribute musí být unikátní.',
+    'uploaded'    => 'Nahrávání :attribute se nezdařilo.',
+    'url'         => 'Formát :attribute je neplatný.',
+    'uuid'        => ':attribute musí být validní UUID.',
 
     /*
     |--------------------------------------------------------------------------
@@ -140,12 +138,13 @@ return [
     | Custom Validation Attributes
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
+    | The following language lines are used to swap attribute place-holders
+    | with something more reader friendly such as E-Mail Address instead
+    | of "email". This simply helps us make messages a little cleaner.
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'password' => 'heslo',
+    ],
 ];
